@@ -19,7 +19,3 @@ BEGIN
 END//
 
 DELIMITER ;
-
-CALL deleteOperator(7);
-
-SELECT * FROM operator;
