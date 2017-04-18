@@ -25,7 +25,3 @@ BEGIN
 END//
 
 DELIMITER ;
-
-CALL insertOperator('Hans','GH','FGH','210195-0000','hello');
-
-SELECT * FROM operator;
