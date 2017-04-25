@@ -13,75 +13,18 @@ CREATE PROCEDURE updateOperator(
   IN password   TEXT
 )
   BEGIN
-    IF first_name != ''
-    THEN
-      BEGIN
-        SET @s = CONCAT('
-          UPDATE operator
-          SET operator_firstname = ''', first_name, '''
-          WHERE operator_id = ''', id, ''';
-        ');
-        PREPARE statement FROM @s;
-        EXECUTE statement;
-        DEALLOCATE PREPARE statement;
-      END;
-    END IF;
 
-    IF last_name != ''
-    THEN
-      BEGIN
-        SET @s = CONCAT('
-          UPDATE operator
-          SET operator_lastname = ''', last_name, '''
-          WHERE operator_id = ''', id, ''';
-        ');
-        PREPARE statement FROM @s;
-        EXECUTE statement;
-        DEALLOCATE PREPARE statement;
-      END;
-    END IF;
-
-    IF initials != ''
-    THEN
-      BEGIN
-        SET @s = CONCAT('
-          UPDATE operator
-          SET initials = ''', initials, '''
-          WHERE operator_id = ''', id, ''';
-        ');
-        PREPARE statement FROM @s;
-        EXECUTE statement;
-        DEALLOCATE PREPARE statement;
-      END;
-    END IF;
-
-    IF cpr != ''
-    THEN
-      BEGIN
-        SET @s = CONCAT('
-          UPDATE operator
-          SET cpr = ''', cpr, '''
-          WHERE operator_id = ''', id, ''';
-        ');
-        PREPARE statement FROM @s;
-        EXECUTE statement;
-        DEALLOCATE PREPARE statement;
-      END;
-    END IF;
-
-    IF password != ''
-    THEN
-      BEGIN
-        SET @s = CONCAT('
-          UPDATE operator
-          SET password = ''', password, '''
-          WHERE operator_id = ''', id, ''';
-        ');
-        PREPARE statement FROM @s;
-        EXECUTE statement;
-        DEALLOCATE PREPARE statement;
-      END;
-    END IF;
+    SET @s = CONCAT('
+      UPDATE operator
+      SET operator_firstname = ''', first_name, '''
+        , operator_lastname = ''', last_name, '''
+        , initials = ''', initials, '''
+        , cpr = ''', cpr, '''
+        , password = ''', password, '''
+      WHERE operator_id = ', id, ';');
+    PREPARE statement FROM @s;
+    EXECUTE statement;
+    DEALLOCATE PREPARE statement;
 
   END//
 

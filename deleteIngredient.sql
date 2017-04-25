@@ -1,16 +1,16 @@
 USE dbweight;
 
-DROP PROCEDURE IF EXISTS deleteOperator;
+DROP PROCEDURE IF EXISTS deleteIngredient;
 
 DELIMITER //
 
-CREATE PROCEDURE deleteOperator (
+CREATE PROCEDURE deleteIngredient (
   IN id INT(11)
 )
 BEGIN
   SET @s = CONCAT('
-  DELETE FROM operator
-  WHERE operator_id = ',id,';');
+  DELETE FROM ingredient
+  WHERE ingredient_id = ',id,';');
 
   PREPARE statement FROM @s;
   EXECUTE statement;
