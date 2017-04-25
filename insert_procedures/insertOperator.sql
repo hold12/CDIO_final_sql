@@ -12,8 +12,8 @@ CREATE PROCEDURE insertOperator(
   IN password  TEXT
 )
   BEGIN
-    SET @id = (SELECT MAX(operator_id)
-               FROM operator);
+    SET @id = IFNULL((SELECT MAX(operator_id)
+               FROM operator),0);
     SET @s = CONCAT(
         'INSERT INTO operator(operator_id, operator_firstname, operator_lastname, initials, cpr, password) VALUES(
         ', @id + 1, ',''', firstname, ''',''', lastname, ''',''', initials, ''',''', cpr, ''',''', password, ''');'

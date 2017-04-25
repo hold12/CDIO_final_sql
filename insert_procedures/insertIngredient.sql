@@ -9,8 +9,8 @@ CREATE PROCEDURE insertIngredient(
   IN supplier TEXT
 )
   BEGIN
-    SET @id = (SELECT MAX(ingredient_id)
-               FROM ingredient);
+    SET @id = IFNULL((SELECT MAX(ingredient_id)
+               FROM ingredient),0);
     SET @s = CONCAT(
         'INSERT INTO ingredient(ingredient_id, ingredient_name, supplier) VALUES(
         ', @id + 1, ',''', name, ''',''', supplier, ''');'

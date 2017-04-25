@@ -9,8 +9,8 @@ CREATE PROCEDURE insertProductbatch(
   IN recipe_id INT(11)
 )
   BEGIN
-    SET @id = (SELECT MAX(productbatch_id)
-               FROM productbatch);
+    SET @id = IFNULL((SELECT MAX(productbatch_id)
+               FROM productbatch),0);
     SET @s = CONCAT(
         'INSERT INTO productbatch(productbatch_id, status, recipe_id) VALUES(
         ', @id + 1, ',', status, ',', recipe_id, ');'
