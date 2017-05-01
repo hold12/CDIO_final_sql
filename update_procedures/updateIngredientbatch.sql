@@ -10,14 +10,15 @@ CREATE PROCEDURE updateIngredientbatch(
   IN amount        DOUBLE
 )
   BEGIN
-
-    SET @s = CONCAT('
-      UPDATE ingredientbatch
-      SET ingredient_id = ', ingredient_id, '
-        , amount = ', amount, '
-      WHERE ingredientbatch_id = ', id, ';');
+    SET @ingredientbatch_id = id;
+    SET @ingredient_id_v = ingredient_id;
+    SET @amount_v = amount;
+    SET @s = 'UPDATE ingredientbatch
+      SET ingredient_id = ?
+        , amount = ?
+      WHERE ingredientbatch_id = ?;';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @ingredient_id_v, @amount_v, @ingredientbatch_id;
     DEALLOCATE PREPARE statement;
 
   END//

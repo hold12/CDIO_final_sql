@@ -10,13 +10,13 @@ CREATE PROCEDURE insertIngredient(
 )
   BEGIN
     SET @id = IFNULL((SELECT MAX(ingredient_id)
-               FROM ingredient),0);
-    SET @s = CONCAT(
-        'INSERT INTO ingredient(ingredient_id, ingredient_name, supplier) VALUES(
-        ', @id + 1, ',''', name, ''',''', supplier, ''');'
-    );
+                      FROM ingredient), 0) + 1;
+    SET @nam = name;
+    SET @sup = supplier;
+    SET @s = 'INSERT INTO ingredient(ingredient_id, ingredient_name, supplier) VALUES (?, ?, ?)';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement
+    USING @id, @nam, @sup;
     DEALLOCATE PREPARE statement;
 
   END//

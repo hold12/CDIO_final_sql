@@ -10,13 +10,12 @@ CREATE PROCEDURE insertProductbatch(
 )
   BEGIN
     SET @id = IFNULL((SELECT MAX(productbatch_id)
-               FROM productbatch),0);
-    SET @s = CONCAT(
-        'INSERT INTO productbatch(productbatch_id, status, recipe_id) VALUES(
-        ', @id + 1, ',', status, ',', recipe_id, ');'
-    );
+               FROM productbatch),0)+1;
+    SET @status_v = status;
+    SET @recipe_id_v = recipe_id;
+    SET @s = 'INSERT INTO productbatch(productbatch_id, status, recipe_id) VALUES(?,?,?);';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @id, @status_v, @recipe_id_v;
     DEALLOCATE PREPARE statement;
 
   END//

@@ -8,12 +8,12 @@ CREATE PROCEDURE deleteRecipe (
   IN id INT(11)
 )
 BEGIN
-  SET @s = CONCAT('
-  DELETE FROM recipe
-  WHERE recipe_id = ',id,';');
+  SET @recipe_id = id;
+  SET @s = 'DELETE FROM recipe
+  WHERE recipe_id = ?;';
 
   PREPARE statement FROM @s;
-  EXECUTE statement;
+  EXECUTE statement USING @recipe_id;
   DEALLOCATE PREPARE statement;
 
 END//

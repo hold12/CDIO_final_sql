@@ -10,14 +10,15 @@ CREATE PROCEDURE updateIngredient(
   IN supplier TEXT
 )
   BEGIN
-    
-    SET @s = CONCAT('
-      UPDATE ingredient
-      SET ingredient_name = ''',name,'''
-        , supplier = ''',supplier,'''
-      WHERE ingredient_id = ', id, ';');
+    SET @ingredient_id = id;
+    SET @name_v = name;
+    SET @supplier_v = supplier;
+    SET @s = 'UPDATE ingredient
+      SET ingredient_name = ?
+        , supplier = ?
+      WHERE ingredient_id = ?;';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @name_v, @supplier_v, @ingredient_id;
     DEALLOCATE PREPARE statement;
 
   END//

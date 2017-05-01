@@ -9,12 +9,13 @@ CREATE PROCEDURE updateRecipe(
   IN name TEXT
 )
   BEGIN
-    SET @s = CONCAT('
-      UPDATE recipe
-      SET recipe_name = ''', name, '''
-      WHERE recipe_id = ', id, ';');
+    SET @recipe_id = id;
+    SET @name_v = name;
+    SET @s = 'UPDATE recipe
+      SET recipe_name = ?
+      WHERE recipe_id = ?';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @name_v, @recipe_id;
     DEALLOCATE PREPARE statement;
 
   END//

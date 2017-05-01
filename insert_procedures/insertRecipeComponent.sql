@@ -11,12 +11,13 @@ CREATE PROCEDURE insertRecipecomponent(
   IN tolerance            DOUBLE
 )
   BEGIN
-    SET @s = CONCAT(
-        'INSERT INTO recipecomponent(recipe_id, ingredient_id, nominated_net_weight, tolerance) VALUES(
-        ', recipe_id, ',', ingredient_id, ',', nominated_net_weight, ',', tolerance, ');'
-    );
+    SET @recipe_id_v = recipe_id;
+    SET @ingredient_id_v = ingredient_id;
+    SET @nominated_net_weight_v = nominated_net_weight;
+    SET @tolerance_v = tolerance;
+    SET @s = 'INSERT INTO recipecomponent(recipe_id, ingredient_id, nominated_net_weight, tolerance) VALUES(?,?,?,?);';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @recipe_id_v, @ingredient_id_v, @nominated_net_weight_v, @tolerance_v;
     DEALLOCATE PREPARE statement;
 
   END//

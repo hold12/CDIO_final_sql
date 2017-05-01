@@ -12,12 +12,14 @@ CREATE PROCEDURE insertProductbatchcomponent(
   IN operator_id        INT(11)
 )
   BEGIN
-    SET @s = CONCAT(
-        'INSERT INTO productbatchcomponent(productbatch_id, ingredientbatch_id, tare, net_weight, operator_id) VALUES(
-        ', productbatch_id, ',', ingredientbatch_id, ',', tare, ',', net_weight, ',', operator_id, ');'
-    );
+    SET @productbatch_id_v = productbatch_id;
+    SET @ingredientbatch_id_v = ingredientbatch_id;
+    SET @tare_v = tare;
+    SET @net_weight_v = net_weight;
+    SET @operator_id_v = operator_id;
+    SET @s = 'INSERT INTO productbatchcomponent(productbatch_id, ingredientbatch_id, tare, net_weight, operator_id) VALUES(?,?,?,?,?);';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @productbatch_id_v, @ingredientbatch_id_v, @tare_v, @net_weight_v, @operator_id_v;
     DEALLOCATE PREPARE statement;
 
   END//

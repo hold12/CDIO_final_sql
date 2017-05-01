@@ -9,14 +9,11 @@ CREATE PROCEDURE insertRecipe(
 )
   BEGIN
     SET @id = IFNULL((SELECT MAX(recipe_id)
-               FROM recipe),0);
-    SET @s = CONCAT(
-        'INSERT INTO recipe(recipe_id, recipe_name) VALUES(
-        ', @id + 1, ',''', name, '''
-        );'
-    );
+               FROM recipe),0)+1;
+    SET @name_v = name;
+    SET @s = 'INSERT INTO recipe(recipe_id, recipe_name) VALUES(?,?);';
     PREPARE statement FROM @s;
-    EXECUTE statement;
+    EXECUTE statement USING @id, @name_v;
     DEALLOCATE PREPARE statement;
 
   END//
