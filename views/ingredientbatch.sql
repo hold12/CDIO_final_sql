@@ -1,11 +1,8 @@
 DROP VIEW IF EXISTS view_ingredientbatch;
 
-CREATE VIEW view_ingredientbatch(ingredient_name, supplier, amount) AS
-  SELECT ingredient.ingredient_name,
-    ingredient.supplier,
-    SUM(ingredientbatch.amount)
+CREATE VIEW view_ingredientbatch(ingredientbatch_id,ingredient_id, amount) AS
+  SELECT ingredientbatch_id,
+    ingredient_id,
+    amount
   FROM ingredientbatch
-  JOIN ingredient
-    ON ingredient.ingredient_id = ingredientbatch.ingredient_id
-  GROUP BY ingredient_name,supplier
-  ORDER BY ingredient_name, supplier;
+  ORDER BY ingredientbatch_id,ingredient_id;

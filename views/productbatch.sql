@@ -1,10 +1,8 @@
 DROP VIEW IF EXISTS view_productbatch;
 
-CREATE VIEW view_productbatch(id, recipe_name, status) AS
+CREATE VIEW view_productbatch(id, status, recipe_id) AS
   SELECT productbatch_id,
-    recipe_name,
-    status
+    status,
+    recipe_id
   FROM productbatch
-  JOIN recipe
-    ON recipe.recipe_id = productbatch.recipe_id
-  ORDER BY recipe_name, status;
+  ORDER BY productbatch_id,status;
