@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS insertIngredientbatch;
-
 DELIMITER //
-
 CREATE PROCEDURE insertIngredientbatch(
   IN ingredient_id INT(11),
   IN amount        DOUBLE
@@ -14,10 +10,9 @@ CREATE PROCEDURE insertIngredientbatch(
     SET @ingredient_id_v = ingredient_id;
     SET @amount_v = amount;
     SET @s = 'INSERT INTO ingredientbatch(ingredientbatch_id, ingredient_id, amount) VALUES (?,?,?);';
-    PREPARE statement FROM @s;
+    
+	PREPARE statement FROM @s;
     EXECUTE statement USING @id, @ingredient_id_v, @amount_v;
     DEALLOCATE PREPARE statement;
-
   END//
-
 DELIMITER ;

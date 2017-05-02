@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS updateRecipecomponent;
-
 DELIMITER //
-
 CREATE PROCEDURE updateRecipecomponent(
   IN recipe_id            INT(11),
   IN ingredient_id        INT(11),
@@ -20,10 +16,9 @@ CREATE PROCEDURE updateRecipecomponent(
         , tolerance = ?
       WHERE recipe_id = ?
         AND ingredient_id = ?';
-    PREPARE statement FROM @s;
+    
+	PREPARE statement FROM @s;
     EXECUTE statement USING @nominated_net_weight_v, @tolerance_v, @recipe_id_v, @ingredient_id_v;
     DEALLOCATE PREPARE statement;
-
   END//
-
 DELIMITER ;

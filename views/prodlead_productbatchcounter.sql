@@ -1,6 +1,5 @@
-DROP VIEW IF EXISTS view_productbatchcounter;
-
-CREATE VIEW view_productbatchcounter (recipe_name, status, counter) AS
+DROP VIEW IF EXISTS prodlead_productbatchcounter;
+CREATE VIEW prodlead_productbatchcounter (recipe_name, status, counter) AS
   SELECT recipe_name,
     status,
     COUNT(*)

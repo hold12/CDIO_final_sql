@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS deleteIngredient;
-
 DELIMITER //
-
 CREATE PROCEDURE deleteIngredient (
   IN id INT(11)
 )
@@ -15,7 +11,5 @@ BEGIN
   PREPARE statement FROM @s;
   EXECUTE statement USING @ingredient_id;
   DEALLOCATE PREPARE statement;
-
 END//
-
 DELIMITER ;

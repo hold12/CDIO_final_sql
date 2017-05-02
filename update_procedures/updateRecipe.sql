@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS updateRecipe;
-
 DELIMITER //
-
 CREATE PROCEDURE updateRecipe(
   IN id   INT(11),
   IN name TEXT
@@ -17,7 +13,5 @@ CREATE PROCEDURE updateRecipe(
     PREPARE statement FROM @s;
     EXECUTE statement USING @name_v, @recipe_id;
     DEALLOCATE PREPARE statement;
-
   END//
-
 DELIMITER ;

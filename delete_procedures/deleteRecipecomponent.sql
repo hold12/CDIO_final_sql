@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS deleteRecipecomponent;
-
 DELIMITER //
-
 CREATE PROCEDURE deleteRecipecomponent (
   IN recipe_id INT(11),
   IN ingredient_id INT(11)
@@ -18,7 +14,5 @@ BEGIN
   PREPARE statement FROM @s;
   EXECUTE statement USING @recipe_id_v, @ingredient_id_v;
   DEALLOCATE PREPARE statement;
-
 END//
-
 DELIMITER ;

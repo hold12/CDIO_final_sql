@@ -23,7 +23,8 @@ CREATE TABLE operator(
   operator_lastname TEXT,
   initials TEXT,
   cpr TEXT,
-  password TEXT
+  password TEXT,
+  is_active BIT NOT NULL
 ) ENGINE=innoDB;
  
 CREATE TABLE ingredient(
@@ -73,10 +74,10 @@ CREATE TABLE productbatchcomponent(
   FOREIGN KEY (operator_id) REFERENCES operator(operator_id)
 ) ENGINE=innoDB;
 
-INSERT INTO operator(operator_id, operator_firstname, operator_lastname, initials, cpr, password) VALUES
-(1, 'Angelo', 'A', 'AA', '070770-7007', 'lKje4fa'),
-(2, 'Antonella', 'B', 'AB', '080880-8008', 'atoJ21v'),
-(3, 'Luigi', 'C', 'LC', '090990-9009', 'jEfm5aQ');
+INSERT INTO operator(operator_id, operator_firstname, operator_lastname, initials, cpr, password, is_active) VALUES
+(1, 'Angelo', 'A', 'AA', '070770-7007', 'lKje4fa', 1),
+(2, 'Antonella', 'B', 'AB', '080880-8008', 'atoJ21v', 1),
+(3, 'Luigi', 'C', 'LC', '090990-9009', 'jEfm5aQ', 1);
 
 INSERT INTO ingredient(ingredient_id, ingredient_name, supplier) VALUES
 (1, 'dej', 'Wawelka'),

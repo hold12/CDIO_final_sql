@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS updateProductbatch;
-
 DELIMITER //
-
 CREATE PROCEDURE updateProductbatch(
   IN id        INT(11),
   IN status    INT(11),
@@ -17,10 +13,9 @@ CREATE PROCEDURE updateProductbatch(
       SET status = ?
         , recipe_id = ?
       WHERE productbatch_id = ?';
+	  
     PREPARE statement FROM @s;
     EXECUTE statement USING @status_v, @recipe_id_v, @productbatch_id;
     DEALLOCATE PREPARE statement;
-
   END//
-
 DELIMITER ;

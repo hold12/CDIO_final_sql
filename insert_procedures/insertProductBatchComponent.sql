@@ -1,9 +1,5 @@
-USE dbweight;
-
 DROP PROCEDURE IF EXISTS insertProductbatchcomponent;
-
 DELIMITER //
-
 CREATE PROCEDURE insertProductbatchcomponent(
   IN productbatch_id    INT(11),
   IN ingredientbatch_id INT(11),
@@ -18,10 +14,9 @@ CREATE PROCEDURE insertProductbatchcomponent(
     SET @net_weight_v = net_weight;
     SET @operator_id_v = operator_id;
     SET @s = 'INSERT INTO productbatchcomponent(productbatch_id, ingredientbatch_id, tare, net_weight, operator_id) VALUES(?,?,?,?,?);';
-    PREPARE statement FROM @s;
+    
+	PREPARE statement FROM @s;
     EXECUTE statement USING @productbatch_id_v, @ingredientbatch_id_v, @tare_v, @net_weight_v, @operator_id_v;
     DEALLOCATE PREPARE statement;
-
   END//
-
 DELIMITER ;
