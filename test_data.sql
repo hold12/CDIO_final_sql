@@ -4,8 +4,8 @@ DELETE FROM recipecomponent;
 DELETE FROM recipe;
 DELETE FROM ingredientbatch;
 DELETE FROM ingredient;
-DELETE FROM user2role;
-DELETE FROM role2permission;
+DELETE FROM user_role;
+DELETE FROM role_permission;
 DELETE FROM permission;
 DELETE FROM role;
 DELETE FROM user;
@@ -36,13 +36,13 @@ INSERT INTO permission(permission_id, permission_name) VALUES
   (12, 'productbatch.read'),
   (13, 'weighing');
 
-INSERT INTO user2role(user_id,role_id) VALUES
+INSERT INTO user_role(user_id,role_id) VALUES
   (1, 1),
   (2, 2),
   (3, 3),
   (3, 4);
 
-INSERT INTO role2permission(role_id, permission_id) VALUES
+INSERT INTO role_permission(role_id, permission_id) VALUES
   (1, 1),
   (1, 2),
   (1, 3),

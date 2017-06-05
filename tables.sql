@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS productbatchcomponent;
 DROP TABLE IF EXISTS productbatch;
-DROP TABLE IF EXISTS role2permission;
-DROP TABLE IF EXISTS user2role;
+DROP TABLE IF EXISTS role_permission;
+DROP TABLE IF EXISTS user_role;
 DROP TABLE IF EXISTS role;
 DROP TABLE IF EXISTS permission;
 DROP TABLE IF EXISTS user;
@@ -29,7 +29,7 @@ CREATE TABLE permission(
   permission_name TEXT
 ) ENGINE=innoDB;
 
-CREATE TABLE role2permission(
+CREATE TABLE role_permission(
   role_id INT,
   permission_id INT,
   PRIMARY KEY (role_id, permission_id),
@@ -37,7 +37,7 @@ CREATE TABLE role2permission(
   FOREIGN KEY (permission_id) REFERENCES permission(permission_id)
 ) ENGINE=innoDB;
 
-CREATE TABLE user2role(
+CREATE TABLE user_role(
   user_id INT,
   role_id INT,
   PRIMARY KEY (user_id, role_id),
