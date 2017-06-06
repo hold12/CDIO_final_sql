@@ -1,8 +1,8 @@
 DROP VIEW IF EXISTS adm_user;
-CREATE VIEW adm_user(id, first_name, last_name, initials, roles, permissions) AS
+CREATE VIEW adm_user(user_id, firstname, lastname, initials, roles, permissions) AS
   SELECT user.user_id,
-    user.user_firstname,
-    user.user_lastname,
+    user.firstname,
+    user.lastname,
     user.initials,
     GROUP_CONCAT(DISTINCT role.role_name),
     GROUP_CONCAT(DISTINCT permission.permission_name)
@@ -15,5 +15,5 @@ CREATE VIEW adm_user(id, first_name, last_name, initials, roles, permissions) AS
       ON role.role_id = role_permission.role_id
     JOIN permission
       ON role_permission.permission_id = permission.permission_id
-  GROUP BY user.user_id, user_firstname, user_lastname, initials
-  ORDER BY user_firstname, user_lastname;
+  GROUP BY user.user_id, user.firstname, user.lastname, user.initials
+  ORDER BY firstname, lastname;

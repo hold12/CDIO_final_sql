@@ -12,8 +12,8 @@ DROP TABLE IF EXISTS ingredient;
 
 CREATE TABLE user(
   user_id INT PRIMARY KEY,
-  user_firstname TEXT,
-  user_lastname TEXT,
+  firstname TEXT,
+  lastname TEXT,
   initials TEXT,
   password TEXT,
   is_active BIT NOT NULL

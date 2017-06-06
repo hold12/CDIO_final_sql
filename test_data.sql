@@ -10,7 +10,7 @@ DELETE FROM permission;
 DELETE FROM role;
 DELETE FROM user;
 
-INSERT INTO user(user_id, user_firstname, user_lastname, initials, password, is_active) VALUES
+INSERT INTO user(user_id, firstname, lastname, initials, password, is_active) VALUES
   (1, 'admin', NULL, 'adm', 'root', 1),
   (2, 'Antonella', 'B', 'AB', 'atoJ21v', 1),
   (3, 'Luigi', 'C', 'LC', 'jEfm5aQ', 1);

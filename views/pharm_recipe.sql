@@ -1,5 +1,5 @@
 DROP VIEW IF EXISTS pharm_recipe;
-CREATE VIEW pharm_recipe(id, recipe_name, ingredient_id, ingredient_name, supplier, nominated_net_weight, tolerance) AS
+CREATE VIEW pharm_recipe(recipe_id, recipe_name, ingredient_id, ingredient_name, supplier, nominated_net_weight, tolerance) AS
   SELECT recipe.recipe_id,
     recipe.recipe_name,
     ingredient.ingredient_id,

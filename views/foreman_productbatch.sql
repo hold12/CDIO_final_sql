@@ -1,5 +1,5 @@
-DROP VIEW IF EXISTS prodlead_productbatch;
-CREATE VIEW prodlead_productbatch(productbatch_id, recipe_id, recipe_name, created_time, finished_time, status, user_id, user_initials) AS
+DROP VIEW IF EXISTS foreman_productbatch;
+CREATE VIEW foreman_productbatch(productbatch_id, recipe_id, recipe_name, created_time, finished_time, status, user_id, initials) AS
   SELECT productbatch.productbatch_id,
     recipe.recipe_id,
     recipe.recipe_name,
