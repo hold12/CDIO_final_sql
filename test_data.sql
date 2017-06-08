@@ -91,7 +91,7 @@ INSERT INTO recipecomponent(recipe_id, ingredient_id, nominated_net_weight, tole
   (2, 5, 1.5, 0.1),
   (2, 6, 1.5, 0.1),
 
-  (3, 1, 10.0, 0.1),
+  (3, 1, 5.0, 0.1),
   (3, 4, 1.5, 0.1),
   (3, 5, 1.5, 0.1),
   (3, 6, 1.0, 0.1),
