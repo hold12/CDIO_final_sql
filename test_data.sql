@@ -73,7 +73,8 @@ INSERT INTO ingredientbatch(ingredientbatch_id, ingredient_id, amount) VALUES
   (4, 5, 100),
   (5, 5, 100),
   (6, 6, 100),
-  (7, 7, 100);
+  (7, 7, 100),
+  (8, 4, 100);
 
 INSERT INTO recipe(recipe_id, recipe_name) VALUES
   (1, 'margherita'),
