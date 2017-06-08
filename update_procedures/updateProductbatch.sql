@@ -2,8 +2,8 @@ DROP PROCEDURE IF EXISTS updateProductbatch;
 DELIMITER //
 CREATE PROCEDURE updateProductbatch(
   IN productbatch_id INT(11),
-  IN created_time    INT(11),
-  IN finished_time   INT(11),
+  IN created_time    TIMESTAMP,
+  IN finished_time   TIMESTAMP,
   IN status          INT(11),
   IN recipe_id       INT(11),
   IN user_id         INT(11)
