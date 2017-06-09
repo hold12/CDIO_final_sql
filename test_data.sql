@@ -13,7 +13,7 @@ DELETE FROM user;
 INSERT INTO user(user_id, firstname, lastname, initials, password, is_active) VALUES
   (1, 'admin', NULL, 'adm', 'root', 1),
   (2, 'Antonella', 'B', 'AB', 'atoJ21v', 1),
-  (3, 'Luigi', 'C', 'LC', 'jEfm5aQ', 1);
+  (3, 'Luigi', 'C', 'LC', 'jEfm5aQ', 0);
 
 INSERT INTO role(role_id,role_name) VALUES
   (1, 'administrator'),
