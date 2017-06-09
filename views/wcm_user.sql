@@ -1,10 +1,7 @@
 DROP VIEW IF EXISTS wcm_user;
-CREATE VIEW wcm_user(user_id, firstname, lastname, initials, password, is_active) AS
+CREATE VIEW wcm_user(user_id, firstname, lastname) AS
   SELECT user_id,
     firstname,
-    lastname,
-    initials,
-    password,
-    is_active
+    lastname
   FROM user
   ORDER BY user_id;
