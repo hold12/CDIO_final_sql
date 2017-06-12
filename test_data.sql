@@ -13,7 +13,8 @@ DELETE FROM user;
 INSERT INTO user(user_id, firstname, lastname, initials, password, is_active) VALUES
   (1, 'admin', NULL, 'adm', 'root', 1),
   (2, 'Antonella', 'B', 'AB', 'atoJ21v', 1),
-  (3, 'Luigi', 'C', 'LC', 'jEfm5aQ', 1);
+  (3, 'Luigi', 'C', 'LC', 'jEfm5aQ', 0),
+  (4, 'Bob', 'D', 'BD', 'h3jE7Ol', 1);
 
 INSERT INTO role(role_id,role_name) VALUES
   (1, 'administrator'),
@@ -40,7 +41,7 @@ INSERT INTO user_role(user_id,role_id) VALUES
   (1, 1),
   (2, 2),
   (3, 3),
-  (3, 4);
+  (4, 4);
 
 INSERT INTO role_permission(role_id, permission_id) VALUES
   (1, 1),
@@ -86,6 +87,6 @@ INSERT INTO recipecomponent(recipe_id, ingredient_id, nominated_net_weight, tole
   (3, 5, 0.144, 1);
 
 INSERT INTO productbatch(productbatch_id, created_time, finished_time, recipe_id, status, user_id) VALUES
-  (1, '2017-06-04 10:38:39', NULL, 1, 0, 3),
-  (2, '2017-06-05 11:39:26', NULL, 2, 0, 3),
-  (3, '2017-06-06 11:39:26', NULL, 3, 0, 3);
+  (1, '2017-06-04 10:38:39', NULL, 1, 0, 4),
+  (2, '2017-06-05 11:39:26', NULL, 2, 0, 4),
+  (3, '2017-06-06 11:39:26', NULL, 3, 0, 4);
