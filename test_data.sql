@@ -14,7 +14,8 @@ INSERT INTO user(user_id, firstname, lastname, initials, password, is_active) VA
   (1, 'admin', NULL, 'adm', 'root', 1),
   (2, 'Antonella', 'B', 'AB', 'atoJ21v', 1),
   (3, 'Luigi', 'C', 'LC', 'jEfm5aQ', 0),
-  (4, 'Bob', 'D', 'BD', 'h3jE7Ol', 1);
+  (4, 'Bob', 'D', 'BD', 'h3jE7Ol', 1),
+  (5, 'Svend', 'E', 'SE', 'Adm_passw0rd', 1);
 
 INSERT INTO role(role_id,role_name) VALUES
   (1, 'administrator'),
@@ -39,10 +40,13 @@ INSERT INTO permission(permission_id, permission_name) VALUES
 
 INSERT INTO user_role(user_id,role_id) VALUES
   (1, 1),
+  (1, 2),
+  (1, 3),
   (2, 2),
   (3, 3),
   (4, 3),
-  (4, 4);
+  (4, 4),
+  (5, 1);
 
 INSERT INTO role_permission(role_id, permission_id) VALUES
   (1, 1),
