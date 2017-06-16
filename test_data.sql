@@ -36,7 +36,8 @@ INSERT INTO permission(permission_id, permission_name) VALUES
   (10, 'ingredientbatch.read'),
   (11, 'productbatch.create'),
   (12, 'productbatch.read'),
-  (13, 'weighing');
+  (13, 'weighing'),
+  (14, 'role.read');
 
 INSERT INTO user_role(user_id,role_id) VALUES
   (1, 1),
@@ -62,7 +63,8 @@ INSERT INTO role_permission(role_id, permission_id) VALUES
   (3, 10),
   (3, 11),
   (3, 12),
-  (4, 13);
+  (4, 13),
+  (1, 14);
 
 INSERT INTO ingredient(ingredient_id, ingredient_name, supplier) VALUES
   (1, 'Freyas OnePlus X', 'OnePlus'),
