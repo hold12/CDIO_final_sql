@@ -4,4 +4,4 @@ CREATE VIEW pharm_ingredient(ingredient_id,ingredient_name, supplier) AS
     ingredient_name,
     supplier
   FROM ingredient
-  ORDER BY ingredient_name,supplier;
+  ORDER BY ingredient_id;

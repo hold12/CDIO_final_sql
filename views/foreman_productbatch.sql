@@ -13,4 +13,4 @@ CREATE VIEW foreman_productbatch(productbatch_id, recipe_id, recipe_name, create
     ON recipe.recipe_id = productbatch.recipe_id
   JOIN user
     ON user.user_id = productbatch.user_id
-  ORDER BY created_time;
+  ORDER BY productbatch.productbatch_id;

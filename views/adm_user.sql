@@ -18,4 +18,4 @@ CREATE VIEW adm_user(user_id, firstname, lastname, initials, role_id, role_name,
     JOIN permission
       ON role_permission.permission_id = permission.permission_id
   GROUP BY user.user_id, user.firstname, user.lastname, user.initials
-  ORDER BY firstname, lastname;
+  ORDER BY user.user_id;

@@ -8,4 +8,4 @@ CREATE VIEW foreman_ingredientbatch(ingredientbatch_id, ingredient_id, ingredien
   FROM ingredientbatch
     JOIN ingredient
       ON ingredient.ingredient_id = ingredientbatch.ingredient_id
-  ORDER BY ingredient_name, supplier;
+  ORDER BY ingredientbatch.ingredientbatch_id;
